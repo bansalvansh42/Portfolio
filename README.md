@@ -2,7 +2,7 @@
 
 AI Engineer portfolio built with Next.js 16, TypeScript, Tailwind CSS v4, Framer Motion, and shadcn/ui-style components.
 
-**Live:** [vanshbansal.dev][https://portfolio-tau-eight-lhu8r0w0vf.vercel.app/])
+**Live:** [vanshbansal.dev]([https://portfolio-tau-eight-lhu8r0w0vf.vercel.app/])
 
 ---
 
