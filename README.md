@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Vansh Bansal
+
+AI Engineer portfolio built with Next.js 16, TypeScript, Tailwind CSS v4, Framer Motion, and shadcn/ui-style components.
+
+**Live:** [vanshbansal.dev](https://vanshbansal.dev)
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS v4 + CSS custom properties |
+| UI | shadcn/ui primitives (Button, Badge, Card, Modal) |
+| Animation | Framer Motion |
+| Icons | Lucide React |
+| Theme | next-themes (dark/light/system) |
+| Font | Geist (via next/font) |
+| Deployment | Static export, ready for Vercel |
+
+## Project Structure
+
+```
+src/
+├── app/                # Pages (/, /projects, /experience, /contact)
+│   ├── layout.tsx      # Root layout with metadata, SEO, theme
+│   ├── not-found.tsx   # Custom 404 page
+│   ├── sitemap.ts      # Auto-generated sitemap.xml
+│   └── robots.ts       # Auto-generated robots.txt
+├── components/
+│   ├── ui/             # Primitives (Button, Badge, Card, Modal)
+│   ├── layout/         # Header, Footer, ThemeToggle, MobileNav
+│   ├── home/           # Home sections (Hero, Skills, FeaturedProjects)
+│   ├── shared/         # Cross-page (ProjectCard, TimelineItem, SectionHeading)
+│   └── projects/       # VideoModal with Loom/YouTube embed support
+├── data/               # ★ All editable content
+│   ├── personal.ts     # Name, title, tagline, about, links
+│   ├── skills.ts       # Skills list + category labels
+│   ├── projects.ts     # Project entries with tech, metrics, videoUrl
+│   └── experience.ts   # Work history with quantified bullets
+├── types/              # TypeScript interfaces
+└── lib/                # cn() utility
+```
+
+## Customization
+
+To update your portfolio content, edit the files in `src/data/`:
+
+| What to change | File |
+|---|---|
+| Name, title, bio, links | `src/data/personal.ts` |
+| Skills and categories | `src/data/skills.ts` |
+| Projects (add/remove/edit) | `src/data/projects.ts` |
+| Work experience | `src/data/experience.ts` |
+| Site metadata / SEO | `src/app/layout.tsx` |
+| Profile picture / resume | Place in `public/` |
+
+To add a demo video to a project, add a `videoUrl` field:
+
+```ts
+{
+  id: "my-project",
+  title: "My Project",
+  // ... other fields
+  videoUrl: "https://www.loom.com/embed/abc123",  // Loom or YouTube
+}
+```
+
+The VideoModal automatically handles Loom share links and YouTube watch URLs — no manual conversion needed.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Outputs a fully static site to `.next/`. All pages are prerendered as static HTML.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project is ready for Vercel deployment with zero configuration.
