@@ -1,11 +1,5 @@
-import type { Metadata } from "next"
-import { ProjectsPage } from "./projects-page"
+import { redirect } from "next/navigation"
 
-export const metadata: Metadata = {
-  title: "Projects",
-  description: "Showcase of AI engineering projects including voice AI, automation, RAG, and more.",
-}
-
-export default function Projects() {
-  return <ProjectsPage />
+export default function ProjectsPage() {
+  redirect("/")
 }

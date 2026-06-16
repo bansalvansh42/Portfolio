@@ -1,6 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronDown } from "lucide-react"
 
 interface TimelineItemProps {
   role: string
@@ -11,33 +13,57 @@ interface TimelineItemProps {
 }
 
 export function TimelineItem({ role, company, period, description, index }: TimelineItemProps) {
+  const [expanded, setExpanded] = useState(false)
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="relative pl-8 pb-12 last:pb-0"
+      transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
+      className="relative pl-7 pb-10 last:pb-0"
     >
-      <div className="absolute left-0 top-0 h-full w-px bg-border" />
-      <div className="absolute left-[-4.5px] top-1 h-2.5 w-2.5 rounded-full border-2 border-foreground bg-background" />
+      <div className="absolute left-[3px] top-2 bottom-0 w-px bg-border last:hidden" />
+      <div className="absolute left-0 top-2 h-[7px] w-[7px] rounded-full border border-foreground bg-background" />
 
-      <div className="space-y-2">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-          <h3 className="text-lg font-semibold">{role}</h3>
-          <span className="text-sm text-muted-foreground hidden sm:inline">&middot;</span>
-          <span className="text-sm text-muted-foreground">{company}</span>
+      <button
+        onClick={() => setExpanded((p) => !p)}
+        className="w-full text-left cursor-pointer"
+        type="button"
+      >
+        <div className="flex items-center justify-between gap-2">
+          <div className="space-y-0.5">
+            <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-2">
+              <h3 className="text-base font-semibold">{role}</h3>
+              <span className="text-sm text-muted-foreground">{company}</span>
+            </div>
+            <p className="text-xs text-muted-foreground/60">{period}</p>
+          </div>
+          <ChevronDown
+            className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+          />
         </div>
-        <p className="text-sm text-muted-foreground">{period}</p>
-        <ul className="space-y-1.5">
-          {description.map((item) => (
-            <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
-              <span className="mt-2 block h-1 w-1 shrink-0 rounded-full bg-muted-foreground/50" />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+            className="overflow-hidden"
+          >
+            <ul className="space-y-1.5 pt-3">
+              {description.map((item) => (
+                <li key={item} className="text-sm text-muted-foreground leading-relaxed">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   )
 }
