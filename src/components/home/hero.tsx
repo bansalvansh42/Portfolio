@@ -80,7 +80,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="text-sm sm:text-base text-foreground/50 hover:text-foreground transition-colors font-medium"
             >
-              Résumé
+              Resume
             </a>
           </motion.div>
         </div>
