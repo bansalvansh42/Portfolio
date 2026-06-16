@@ -35,12 +35,12 @@ export function TimelineItem({ role, company, period, description, index }: Time
           <div className="space-y-0.5">
             <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-2">
               <h3 className="text-base font-semibold">{role}</h3>
-              <span className="text-sm text-muted-foreground">{company}</span>
+              <span className="text-sm text-foreground/55">{company}</span>
             </div>
-            <p className="text-xs text-muted-foreground/60">{period}</p>
+            <p className="text-xs text-foreground/40">{period}</p>
           </div>
           <ChevronDown
-            className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+            className={`h-4 w-4 shrink-0 text-foreground/35 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
           />
         </div>
       </button>
@@ -54,9 +54,10 @@ export function TimelineItem({ role, company, period, description, index }: Time
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <ul className="space-y-1.5 pt-3">
+            <ul className="space-y-2 pt-3 pl-0">
               {description.map((item) => (
-                <li key={item} className="text-sm text-muted-foreground leading-relaxed">
+                <li key={item} className="text-sm text-foreground/65 leading-relaxed pl-4 relative">
+                  <span className="absolute left-0 top-[0.6875rem] h-px w-2 bg-foreground/20" aria-hidden="true" />
                   {item}
                 </li>
               ))}

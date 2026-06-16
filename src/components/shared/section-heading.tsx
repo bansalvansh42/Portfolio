@@ -16,7 +16,7 @@ export function SectionHeading({ title, description }: SectionHeadingProps) {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">{title}</h2>
-      {description && <p className="text-base text-muted-foreground max-w-lg leading-relaxed">{description}</p>}
+      {description && <p className="text-base text-foreground/65 max-w-lg leading-relaxed">{description}</p>}
     </motion.div>
   )
 }

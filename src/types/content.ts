@@ -13,6 +13,8 @@ export interface Project {
 export interface Skill {
   name: string
   category: SkillCategory
+  slug?: string
+  hasSimpleIcon: boolean
 }
 
 export type SkillCategory =
