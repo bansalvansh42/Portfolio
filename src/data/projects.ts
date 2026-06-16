@@ -8,7 +8,7 @@ export const projects: Project[] = [
       "Built a voice AI assistant that handles full-cycle appointment booking through natural phone conversations. Integrated with Google Calendar for real-time slot availability and confirmation.",
     tech: ["VAPI", "GPT-4", "FastAPI", "Google Calendar API", "Twilio"],
     impact: "Reduced manual scheduling effort by 70%, handling 200+ appointments per week with 92% booking completion rate.",
-    href: "#",
+    href: "https://github.com/bansalvansh42",
     videoUrl: "https://www.loom.com/embed/9daaf492ed374d12b0588bcdca544c3e",
   },
   {

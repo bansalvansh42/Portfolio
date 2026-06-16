@@ -20,11 +20,16 @@ export function TimelineItem({ role, company, period, description, index }: Time
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
-      className="relative pl-7 pb-10 last:pb-0"
+      transition={{ duration: 0.4, delay: index * 0.08, ease: [0.25, 0.1, 0, 1] }}
+      className="relative pl-8 pb-10 last:pb-0"
     >
-      <div className="absolute left-[3px] top-2 bottom-0 w-px bg-border last:hidden" />
-      <div className="absolute left-0 top-2 h-[7px] w-[7px] rounded-full border border-foreground bg-background" />
+      {/* Timeline line */}
+      <div className="absolute left-[7px] top-2 bottom-0 w-px bg-border last:hidden" />
+
+      {/* Timeline dot */}
+      <div className="absolute left-0 top-2 h-[15px] w-[15px] rounded-full border-2 border-border bg-background flex items-center justify-center">
+        <div className="h-[5px] w-[5px] rounded-full bg-primary/40" />
+      </div>
 
       <button
         onClick={() => setExpanded((p) => !p)}
@@ -54,10 +59,10 @@ export function TimelineItem({ role, company, period, description, index }: Time
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <ul className="space-y-2 pt-3 pl-0">
+            <ul className="space-y-2 pt-4">
               {description.map((item) => (
                 <li key={item} className="text-sm text-foreground/65 leading-relaxed pl-4 relative">
-                  <span className="absolute left-0 top-[0.6875rem] h-px w-2 bg-foreground/20" aria-hidden="true" />
+                  <span className="absolute left-0 top-[0.6875rem] h-px w-2.5 bg-primary/30" aria-hidden="true" />
                   {item}
                 </li>
               ))}

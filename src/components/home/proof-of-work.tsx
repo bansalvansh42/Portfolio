@@ -10,10 +10,10 @@ export function ProofOfWork() {
       <div className="container py-24 md:py-32">
         <SectionHeading
           title="Proof of Work"
-          description="AI agent systems, workflow automations, and intelligent applications I've built."
+          description="AI agent systems, workflow automations, and intelligent applications I&apos;ve built."
         />
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 mt-14">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-14">
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}

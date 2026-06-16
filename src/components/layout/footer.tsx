@@ -8,31 +8,31 @@ export function Footer() {
         <p className="text-sm text-foreground/50">
           &copy; {new Date().getFullYear()} {personalInfo.name}
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           <a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground/40 hover:text-foreground transition-colors"
+            className="text-foreground/40 hover:text-primary transition-colors"
             aria-label="GitHub"
           >
-            <GithubIcon className="h-4 w-4" />
+            <GithubIcon className="h-5 w-5" />
           </a>
           <a
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground/40 hover:text-foreground transition-colors"
+            className="text-foreground/40 hover:text-primary transition-colors"
             aria-label="LinkedIn"
           >
-            <LinkedinIcon className="h-4 w-4" />
+            <LinkedinIcon className="h-5 w-5" />
           </a>
           <a
             href={`mailto:${personalInfo.email}`}
-            className="text-foreground/40 hover:text-foreground transition-colors"
+            className="text-foreground/40 hover:text-primary transition-colors"
             aria-label="Email"
           >
-            <MailIcon className="h-4 w-4" />
+            <MailIcon className="h-5 w-5" />
           </a>
         </div>
       </div>

@@ -19,6 +19,9 @@ const logoColors: Record<string, string> = {
   githubactions: "#2088FF",
 }
 
+// Icons with dark fills that need inverting in dark mode
+const darkLogos = new Set(["nextdotjs", "langgraph", "ollama", "anthropic"])
+
 export function getTechColor(name: string): string {
   return logoColors[name] ?? "#666"
 }
@@ -27,15 +30,16 @@ export function getTechLogo(name: string, slug?: string, className?: string): Re
   if (!slug) {
     return <SimpleIconFallback name={name} className={className} />
   }
-  return <SimpleIconImg slug={slug} className={className} />
+  const invertDark = darkLogos.has(slug)
+  return <SimpleIconImg slug={slug} invertDark={invertDark} className={className} />
 }
 
-function SimpleIconImg({ slug, className = "w-5 h-5" }: { slug: string; className?: string }) {
+function SimpleIconImg({ slug, invertDark, className = "w-5 h-5" }: { slug: string; invertDark?: boolean; className?: string }) {
   return (
     <img
       src={`https://cdn.simpleicons.org/${slug}`}
       alt=""
-      className={`${className} object-contain`}
+      className={`${className} object-contain${invertDark ? " dark:invert" : ""}`}
       loading="lazy"
       draggable={false}
     />

@@ -14,7 +14,7 @@ export const experience: Experience[] = [
   },
   {
     role: "IT Operations Specialist",
-    company: "TechCorp Solutions",
+    company: "Cubastion Consulting",
     period: "2022 — 2024",
     description: [
       "Managed Azure infrastructure and Microsoft Intune for 500+ endpoints across 3 office locations",

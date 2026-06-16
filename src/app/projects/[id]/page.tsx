@@ -49,9 +49,9 @@ export default async function ProjectPage({ params }: Props) {
           Back
         </Link>
 
-        <div className={`aspect-[16/9] bg-gradient-to-br ${style.bg} relative mb-10 overflow-hidden`}>
+        <div className={`aspect-[16/9] bg-gradient-to-br ${style.bg} relative mb-10 overflow-hidden rounded-sm`}>
           <div
-            className="absolute top-0 left-0 w-full h-[2px]"
+            className="absolute top-0 left-4 right-4 h-px"
             style={{ backgroundColor: style.accent }}
           />
         </div>
@@ -63,10 +63,13 @@ export default async function ProjectPage({ params }: Props) {
         </p>
 
         <div className="border-t border-border pt-6 mb-8">
-          <h2 className="text-sm font-semibold text-foreground/50 mb-3">Tech Stack</h2>
+          <div className="flex items-center gap-3 mb-3">
+            <span className="h-px w-4 bg-primary/50" aria-hidden="true" />
+            <h2 className="text-sm font-semibold text-foreground/50">Tech Stack</h2>
+          </div>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((t) => (
-              <span key={t} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs border border-border text-foreground/55">
+              <span key={t} className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium border text-foreground/80 border-foreground/20">
                 {t}
               </span>
             ))}
@@ -74,7 +77,10 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         <div className="border-t border-border pt-6 mb-8">
-          <h2 className="text-sm font-semibold text-foreground/50 mb-2">Impact</h2>
+          <div className="flex items-center gap-3 mb-2">
+            <span className="h-px w-4 bg-primary/50" aria-hidden="true" />
+            <h2 className="text-sm font-semibold text-foreground/50">Impact</h2>
+          </div>
           <p className="text-sm text-foreground/65 leading-relaxed">{project.impact}</p>
         </div>
 
@@ -84,7 +90,7 @@ export default async function ProjectPage({ params }: Props) {
               href={project.videoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-foreground/60 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               <Play className="h-4 w-4" />
               Watch Demo
@@ -95,10 +101,10 @@ export default async function ProjectPage({ params }: Props) {
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-foreground/60 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               <Globe className="h-4 w-4" />
-              Live Demo
+              GitHub
             </a>
           )}
         </div>
