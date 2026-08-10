@@ -2,49 +2,71 @@ import type { Project } from "@/types/content"
 
 export const projects: Project[] = [
   {
+    id: "talentpilot",
+    title: "TalentPilot AI",
+    description:
+      "Built a multi-agent AI recruitment platform that automates candidate evaluation from resume parsing and screening through interview design, evaluation, and final ranking. Orchestrated specialized AI agents with LangGraph and enhanced recruiter workflows using RAG-powered assistants and persistent conversation memory.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "Redis",
+      "BullMQ",
+      "LangGraph",
+      "Ollama",
+      "Qwen3",
+      "pgvector",
+      "Docker"
+    ],
+    impact:
+      "Automates the end-to-end recruitment evaluation pipeline with specialized AI agents, RAG-based context retrieval, persistent memory, automated evaluation, ranking, and recruiter/candidate AI assistants.",
+    href: "https://github.com/bansalvansh42/TalentPilot",
+    videoUrl: "",
+  },
+  {
     id: "voice-appointment-scheduler",
     title: "AI-Powered Voice Appointment Scheduler",
     description:
-      "Built a voice AI assistant that handles full-cycle appointment booking through natural phone conversations. Integrated with Google Calendar for real-time slot availability and confirmation.",
-    tech: ["VAPI", "GPT-4", "FastAPI", "Google Calendar API", "Twilio"],
-    impact: "Reduced manual scheduling effort by 70%, handling 200+ appointments per week with 92% booking completion rate.",
-    href: "https://github.com/bansalvansh42",
-    videoUrl: "https://www.loom.com/embed/9daaf492ed374d12b0588bcdca544c3e",
+      "Built a voice-enabled appointment booking system that allows users to create, view, modify, and cancel appointments through natural voice commands. Integrated VAPI AI with Google Calendar for real-time scheduling and added automated email confirmations and reminders.",
+    tech: [
+      "VAPI AI",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "Google Calendar API",
+      "Nodemailer"
+    ],
+    impact:
+      "Automates appointment scheduling through voice interactions, synchronizing appointments with Google Calendar while providing email confirmations and reminders.",
+    href: "https://github.com/bansalvansh42/AI-Powered-Voice-Based-Appointment-Booking-main",
+    videoUrl:
+      "https://www.loom.com/embed/9daaf492ed374d12b0588bcdca544c3e",
   },
   {
-    id: "it-helpdesk-ai",
-    title: "IT Helpdesk AI Assistant",
+    id: "pos-cravebane",
+    title: "CraveBane POS",
     description:
-      "Intelligent helpdesk assistant that automates tier-1 IT support resolution using RAG over internal knowledge bases. Integrates with ticketing systems to auto-resolve and escalate intelligently.",
-    tech: ["LangChain", "RAG", "FastAPI", "Docker", "ChromaDB", "Claude"],
-    impact: "Automated 40% of incoming IT support tickets end-to-end, reducing average resolution time from 4 hours to 12 minutes.",
-    href: "#",
+      "Built a modern restaurant Point of Sale system for managing orders, billing, kitchen operations, customer details, payments, invoices, notifications, and order history. Added offline resilience with IndexedDB and packaged the application as an installable PWA.",
+    tech: [
+      "React 19",
+      "Redux Toolkit",
+      "React Router",
+      "Tailwind CSS",
+      "Vite",
+      "IndexedDB",
+      "PWA",
+      "React PDF",
+      "QR Code"
+    ],
+    impact:
+      "Provides an end-to-end restaurant ordering and kitchen workflow covering cart management, discounts, Cash/UPI/Split payments, real-time order status tracking, invoices, notifications, and offline order storage.",
+    href: "https://github.com/bansalvansh42/Pos_CraveBane",
+    videoUrl: "",
   },
-  {
-    id: "resume-screening-agent",
-    title: "AI Resume Screening Agent",
-    description:
-      "Multi-agent system that parses, analyzes, and ranks resumes against job descriptions using LLM-powered evaluation. Includes bias detection and explainable scoring.",
-    tech: ["Python", "GPT-4", "FastAPI", "PostgreSQL", "Pinecone", "LangGraph"],
-    impact: "Processed 1,500+ resumes in under 3 minutes with 94% ranking accuracy vs. human reviewers, reducing screening time by 85%.",
-    href: "#",
-  },
-  {
-    id: "n8n-automations",
-    title: "n8n Enterprise Automation Workflows",
-    description:
-      "Designed and deployed complex multi-step automation workflows connecting CRM, email, Slack, and internal APIs for end-to-end business process automation.",
-    tech: ["n8n", "PostgreSQL", "REST APIs", "Webhooks", "Redis", "Docker"],
-    impact: "Automated 15+ cross-departmental workflows, saving 120+ engineering hours per month across sales, support, and operations.",
-    href: "#",
-  },
-  {
-    id: "rag-knowledge-assistant",
-    title: "RAG Knowledge Assistant",
-    description:
-      "Retrieval-augmented generation system for querying custom document repositories with citation-grounded answers. Supports PDFs, Notion exports, and Confluence pages.",
-    tech: ["LangChain", "OpenAI Embeddings", "Ollama", "ChromaDB", "FastAPI", "Docker"],
-    impact: "Enabled 99% accurate document Q&A across a 10,000+ page knowledge base, adopted by 50+ internal users.",
-    href: "#",
-  },
+
 ]
